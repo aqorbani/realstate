@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -7,10 +11,7 @@
 
 html,
 body {
-  max-width: 1200px;
   overflow-x: hidden;
-  margin: auto;
-  padding: 0 10px;
 }
 
 a {
