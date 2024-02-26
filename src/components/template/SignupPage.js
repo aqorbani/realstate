@@ -21,6 +21,10 @@ function SignupPage() {
       toast.error("رمز و تکرار آن برابر نیست");
       return;
     }
+    if (!email || !password) {
+      toast.error("نام کاربری و رمز عبور را وارد نمایید.");
+      return;
+    }
     setLoading(true);
     const res = await fetch("/api/auth/signup", {
       method: "POST",
@@ -37,31 +41,41 @@ function SignupPage() {
   };
 
   return (
-    <div>
-      <h4>فرم ثبت نام</h4>
-      <form>
-        <label>ایمیل:</label>
+    <div className="flex flex-col justify-center items-center w-full md:w-1/2 lg:w-1/4 min-w-52 shadow-md rounded p-2">
+      <h4 className="font-extrabold text-2xl p-4">فرم ثبت نام</h4>
+      <form className="flex flex-col justify-center items-center w-full">
         <input
-          type="text"
+          className="shadow-sm bg-gray-50 rounded p-2 m-2 min-w-48 w-2/3"
+          type="email"
+          name="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          placeholder="ایمیل"
         />
-        <label>رمز عبور:</label>
         <input
+          className="shadow-sm bg-gray-50 rounded p-2 m-2 min-w-48 w-2/3"
           type="password"
+          name="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder="رمز عبور"
         />
-        <label>تکرار رمز عبور:</label>
         <input
+          className="shadow-sm bg-gray-50 rounded p-2 m-2 min-w-48 w-2/3"
+          name="confPassword"
           type="password"
           value={rePassword}
           onChange={(e) => setRePassword(e.target.value)}
+          placeholder="تکرار رمز عبور"
         />
         {loading ? (
           <Loader />
         ) : (
-          <button type="submit" onClick={signupHandler}>
+          <button
+            type="submit"
+            onClick={signupHandler}
+            className="w-full p-2 m-5 bg-red-950 text-white rounded hover:bg-red-900 cursor-pointer"
+          >
             ثبت نام
           </button>
         )}
