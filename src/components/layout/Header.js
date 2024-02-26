@@ -1,7 +1,11 @@
+"use client";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { FiLogIn } from "react-icons/fi";
 
 function Header() {
+  const { data } = useSession();
+  console.log(data);
   return (
     <header className="flex justify-between w-full p-2 bg-gray-100">
       <ul className="flex pr-5">
