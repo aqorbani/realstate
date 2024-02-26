@@ -30,7 +30,9 @@ function SigninPage() {
     if (res.error) {
       toast.error(res.error);
     } else {
-      toast.success("شما با موفقیت وارد حساب کاربری خود شده اید.");
+      toast.success("شما با موفقیت وارد حساب کاربری خود شده اید.", {
+        duration: 5000,
+      });
       router.push("/");
     }
   };
@@ -71,7 +73,6 @@ function SigninPage() {
         حساب کاربری ندارید؟
         <Link href="/signup">ثبت نام</Link>
       </p>
-      <Toaster />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { yekan } from "@/utils/fonts";
 import "./globals.css";
 import Header from "@/layout/Header";
 import Footer from "@/layout/Footer";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "Create Next App",
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
           <Header />
           {children}
           <Footer />
+          <Toaster />
         </div>
       </body>
     </html>

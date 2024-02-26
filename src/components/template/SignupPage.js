@@ -84,7 +84,6 @@ function SignupPage() {
         حساب کاربری دارید؟
         <Link href="/signin">ورود</Link>
       </p>
-      <Toaster />
     </div>
   );
 }
