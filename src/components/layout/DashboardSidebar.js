@@ -20,7 +20,7 @@ export default async function DashboardSidebar() {
             اطلاعات حساب
           </div>
         </Link>
-        <Link href="/dashboard">
+        <Link href="/dashboard/my">
           <div className="font-semibold text-lg mt-5 p-2 bg-gray-100 rounded hover:bg-red-200 cursor-pointer">
             آگهی های من
           </div>
