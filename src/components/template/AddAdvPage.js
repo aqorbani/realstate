@@ -1,5 +1,6 @@
 "use client";
 
+import TextInput from "@/module/TextInput";
 import { useState } from "react";
 
 export default function AddAdvPage() {
@@ -15,5 +16,16 @@ export default function AddAdvPage() {
     rules: [],
     amenities: [],
   });
-  return <div>AddAdvPage</div>;
+  return (
+    <div>
+      <h2 className="font-extrabold text-2xl p-4">ثبت آگهی</h2>
+      <TextInput
+        title="عنوان آگهی"
+        name="title"
+        advData={advData}
+        setAdvData={setAdvData}
+        textArea={false}
+      />
+    </div>
+  );
 }
