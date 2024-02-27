@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth";
 import User from "@/models/User";
 import connectDB from "@/utils/ConnectDB";
 import Advertisement from "@/models/Advertisement";
-import { Schema } from "mongoose";
+import { Types } from "mongoose";
 
 export async function GET() {
   try {
@@ -90,7 +90,7 @@ export async function POST(req) {
       rules,
       category,
       price: +price,
-      userId: new Schema.Types.ObjectId(user._id),
+      userId: new Types.ObjectId(String(user._id)),
     });
     console.log(newAdvertisement);
     return NextResponse.json(

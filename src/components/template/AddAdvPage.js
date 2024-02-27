@@ -4,7 +4,9 @@ import CustomDatePicker from "@/module/CustomDatePicker";
 import RadioList from "@/module/RadioList";
 import TextInput from "@/module/TextInput";
 import TextList from "@/module/TextList";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function AddAdvPage() {
   const [advData, setAdvData] = useState({
@@ -19,6 +21,28 @@ export default function AddAdvPage() {
     rules: [],
     amenities: [],
   });
+
+  const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
+
+  const submitHandler = async () => {
+    setLoading(true);
+    const res = await fetch("/api/adv", {
+      method: "POST",
+      body: JSON.stringify(advData),
+      headers: { "Content-Type": "application/json" },
+    });
+    const data = await res.json();
+    setLoading(false);
+    if (data.error) {
+      toast.error(data.error);
+    } else {
+      toast.success(data.message);
+      router.refresh();
+    }
+  };
+
   return (
     <div className="w-full">
       <h2 className="font-extrabold text-2xl p-4">ثبت آگهی</h2>
@@ -86,7 +110,7 @@ export default function AddAdvPage() {
       <CustomDatePicker advData={advData} setAdvData={setAdvData} />
       <button
         type="submit"
-        onClick={() => console.log(advData)}
+        onClick={submitHandler}
         className="w-full md:w-4/5 lg:w-1/2 p-2 m-2 mt-20 mb-20 bg-red-950 text-white rounded hover:bg-red-900 cursor-pointer"
       >
         ثبت آگهی

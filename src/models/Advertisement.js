@@ -32,7 +32,7 @@ const advertisementSchema = new Schema(
     },
     category: {
       type: String,
-      enum: ["villa", "apartment", "store", "office"],
+      enum: ["villa", "apartment", "commercial", "land"],
       required: true,
     },
     amenities: {
