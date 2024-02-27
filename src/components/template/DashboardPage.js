@@ -1,4 +1,8 @@
-export default function DashboardPage() {
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
+
+export default async function DashboardPage() {
+  const session = await getServerSession(authOptions);
   return (
     <div className="p-5">
       <header className="flex justify-around">
