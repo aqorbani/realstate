@@ -2,6 +2,7 @@
 
 import RadioList from "@/module/RadioList";
 import TextInput from "@/module/TextInput";
+import TextList from "@/module/TextList";
 import { useState } from "react";
 
 export default function AddAdvPage() {
@@ -69,6 +70,18 @@ export default function AddAdvPage() {
         textArea={false}
       />
       <RadioList advData={advData} setAdvData={setAdvData} />
+      <TextList
+        title="امکانات رفاهی"
+        type="amenities"
+        advData={advData}
+        setAdvData={setAdvData}
+      />
+      <TextList
+        title="قوانین"
+        type="rules"
+        advData={advData}
+        setAdvData={setAdvData}
+      />
       <button
         type="submit"
         onClick={() => console.log(advData)}
