@@ -1,4 +1,5 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import LogoutButton from "@/module/LogoutButton";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 import { LuUserSquare2 } from "react-icons/lu";
@@ -29,6 +30,7 @@ export default async function DashboardSidebar() {
             ثبت آگهی +
           </div>
         </Link>
+        <LogoutButton />
       </div>
     </div>
   );
