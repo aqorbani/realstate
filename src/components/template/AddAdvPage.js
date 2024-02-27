@@ -1,5 +1,6 @@
 "use client";
 
+import CustomDatePicker from "@/module/CustomDatePicker";
 import RadioList from "@/module/RadioList";
 import TextInput from "@/module/TextInput";
 import TextList from "@/module/TextList";
@@ -82,6 +83,7 @@ export default function AddAdvPage() {
         advData={advData}
         setAdvData={setAdvData}
       />
+      <CustomDatePicker advData={advData} setAdvData={setAdvData} />
       <button
         type="submit"
         onClick={() => console.log(advData)}
