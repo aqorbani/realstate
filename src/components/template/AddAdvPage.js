@@ -1,5 +1,6 @@
 "use client";
 
+import RadioList from "@/module/RadioList";
 import TextInput from "@/module/TextInput";
 import { useState } from "react";
 
@@ -67,6 +68,7 @@ export default function AddAdvPage() {
         setAdvData={setAdvData}
         textArea={false}
       />
+      <RadioList advData={advData} setAdvData={setAdvData} />
       <button
         type="submit"
         onClick={() => console.log(advData)}
