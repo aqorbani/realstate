@@ -1,3 +1,5 @@
+import DashboardPage from "@/template/DashboardPage";
+
 export default function page() {
-  return <div>page</div>;
+  return <DashboardPage />;
 }
