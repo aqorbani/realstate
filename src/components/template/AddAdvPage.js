@@ -1,6 +1,7 @@
 "use client";
 
 import CustomDatePicker from "@/module/CustomDatePicker";
+import Loader from "@/module/Loader";
 import RadioList from "@/module/RadioList";
 import TextInput from "@/module/TextInput";
 import TextList from "@/module/TextList";
@@ -108,13 +109,17 @@ export default function AddAdvPage() {
         setAdvData={setAdvData}
       />
       <CustomDatePicker advData={advData} setAdvData={setAdvData} />
-      <button
-        type="submit"
-        onClick={submitHandler}
-        className="w-full md:w-4/5 lg:w-1/2 p-2 m-2 mt-20 mb-20 bg-red-950 text-white rounded hover:bg-red-900 cursor-pointer"
-      >
-        ثبت آگهی
-      </button>
+      {loading ? (
+        <Loader />
+      ) : (
+        <button
+          type="submit"
+          onClick={submitHandler}
+          className="w-full md:w-4/5 lg:w-1/2 p-2 m-2 mt-20 mb-20 bg-red-950 text-white rounded hover:bg-red-900 cursor-pointer"
+        >
+          ثبت آگهی
+        </button>
+      )}
     </div>
   );
 }
