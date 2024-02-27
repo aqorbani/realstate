@@ -25,7 +25,7 @@ export default async function DashboardSidebar() {
             آگهی های من
           </div>
         </Link>
-        <Link href="/dashboard">
+        <Link href="/dashboard/add">
           <div className="font-semibold text-lg mt-5 p-2 bg-gray-100 rounded hover:bg-red-200 cursor-pointer">
             ثبت آگهی +
           </div>

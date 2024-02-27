@@ -1,3 +1,5 @@
+import AddAdvPage from "@/template/AddAdvPage";
+
 export default function page() {
-  return <div>page</div>;
+  return <AddAdvPage />;
 }
