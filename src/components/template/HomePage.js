@@ -24,8 +24,10 @@ export default function HomePage() {
           <CategoryCard title={categories[i]} name={i} key={index} />
         ))}
       </div>
-      <div>
-        <h3>شهر های پر بازدید</h3>
+      <div className="mt-40">
+        <h3 className="flex justify-center font-bold text-red-950 text-2xl">
+          شهرهای پربازدید{" "}
+        </h3>
         <ul className="flex flex-wrap justify-around">
           {cities.map((i) => (
             <li
