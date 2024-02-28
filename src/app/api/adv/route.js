@@ -9,7 +9,7 @@ export async function GET() {
   try {
     await connectDB();
 
-    const advertisement = await Advertisement.find({ published: true }).select(
+    const advertisement = await Advertisement.find({ published: false }).select(
       "-userId"
     );
 
