@@ -6,7 +6,12 @@ export default async function page() {
   });
   const data = await res.json();
 
-  if (data.error) return <h3>مشکلی پیش آمده است</h3>;
+  if (data.error)
+    return (
+      <p className="font-semibold text-base text-gray-600">
+        مشکلی در بارگذاری داده ها پیش آمده است.
+      </p>
+    );
 
-  return <PropertiesPage data={data} />;
+  return <PropertiesPage data={data.data} />;
 }
