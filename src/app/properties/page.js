@@ -1,6 +1,6 @@
 import PropertiesPage from "@/template/PropertiesPage";
 
-export default async function page() {
+export default async function page({ searchParams }) {
   const res = await fetch("http://localhost:3000/api/adv", {
     cache: "no-store",
   });
@@ -13,5 +13,11 @@ export default async function page() {
       </p>
     );
 
-  return <PropertiesPage data={data.data} />;
+  let finalData = data.data;
+
+  if (searchParams.category) {
+    finalData = finalData.filter((i) => i.category === searchParams.category);
+  }
+
+  return <PropertiesPage data={finalData} />;
 }
