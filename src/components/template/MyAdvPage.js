@@ -9,7 +9,7 @@ export default function MyAdvPage({ advertisements }) {
         </p>
       )}
       {advertisements.map((item) => (
-        <AdvCardManage key={item._id} data={item} />
+        <AdvCardManage key={item._id} data={JSON.parse(JSON.stringify(item))} />
       ))}
     </div>
   );

@@ -1,3 +1,4 @@
+"use client";
 import { icons } from "@/constants/icons";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { BiLeftArrowAlt } from "react-icons/bi";
