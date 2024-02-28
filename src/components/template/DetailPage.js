@@ -1,10 +1,11 @@
 import { icons } from "@/constants/icons";
 import { categories } from "@/constants/strings";
 import ItemList from "@/module/ItemList";
+import ShareButton from "@/module/ShareButton";
 import Title from "@/module/Title";
 import { e2p, sp } from "@/utils/replaceNumber";
 import { AiOutlinePhone } from "react-icons/ai";
-import { BiCalendarCheck, BiShare } from "react-icons/bi";
+import { BiCalendarCheck } from "react-icons/bi";
 import { HiHome, HiOutlineLocationMarker } from "react-icons/hi";
 
 export default function DetailPage({
@@ -75,9 +76,7 @@ export default function DetailPage({
               {e2p(phone)}
             </div>
           </div>
-          <div className="m-1 p-1 shadow rounded">
-            <BiShare />
-          </div>
+          <ShareButton />
         </div>
       </div>
     </div>
