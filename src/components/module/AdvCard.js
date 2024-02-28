@@ -20,7 +20,7 @@ export default function AdvCard({
         <span>{sp(price)} تومان</span>
       </div>
       <Link
-        href={`/buy-residential/${_id}`}
+        href={`/properties/${_id}`}
         className="flex font-normal text-sm text-gray-600 p-2 rounded"
       >
         مشاهده آگهی
