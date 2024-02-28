@@ -27,7 +27,7 @@ export default function AddAdvPage({ data }) {
     if (data) {
       setAdvData(data);
     }
-  });
+  }, [data]);
 
   const [loading, setLoading] = useState(false);
 
@@ -50,7 +50,22 @@ export default function AddAdvPage({ data }) {
     }
   };
 
-  const editHandler = () => {};
+  const editHandler = async () => {
+    setLoading(true);
+    const res = await fetch("/api/adv", {
+      method: "PATCH",
+      body: JSON.stringify(advData),
+      headers: { "Content-Type": "application/json" },
+    });
+    const data = await res.json();
+    setLoading(false);
+    if (data.error) {
+      toast.error(data.error);
+    } else {
+      toast.success(data.message);
+      router.refresh();
+    }
+  };
 
   return (
     <div className="w-full">
