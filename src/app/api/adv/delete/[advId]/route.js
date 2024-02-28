@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
-import Profile from "@/models/Profile";
 import User from "@/models/User";
 import connectDB from "@/utils/ConnectDB";
+import Advertisement from "@/models/Advertisement";
 
 export async function DELETE(req, context) {
   try {
@@ -30,8 +30,8 @@ export async function DELETE(req, context) {
       );
     }
 
-    const profile = await Profile.findOne({ _id: id });
-    if (!user._id.equals(profile.userId)) {
+    const adv = await Advertisement.findOne({ _id: id });
+    if (!user._id.equals(adv.userId)) {
       return NextResponse.json(
         {
           error: "دستری شما به این آگهی محدود شده است",
@@ -40,7 +40,7 @@ export async function DELETE(req, context) {
       );
     }
 
-    await Profile.deleteOne({ _id: id });
+    await adv.deleteOne({ _id: id });
 
     return NextResponse.json(
       { message: "آگهی موردنظر حذف شد" },

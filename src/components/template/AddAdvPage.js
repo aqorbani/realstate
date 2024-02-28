@@ -6,10 +6,10 @@ import RadioList from "@/module/RadioList";
 import TextInput from "@/module/TextInput";
 import TextList from "@/module/TextList";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-export default function AddAdvPage() {
+export default function AddAdvPage({ data }) {
   const [advData, setAdvData] = useState({
     title: "",
     description: "",
@@ -21,6 +21,12 @@ export default function AddAdvPage() {
     category: "",
     rules: [],
     amenities: [],
+  });
+
+  useEffect(() => {
+    if (data) {
+      setAdvData(data);
+    }
   });
 
   const [loading, setLoading] = useState(false);
@@ -44,9 +50,13 @@ export default function AddAdvPage() {
     }
   };
 
+  const editHandler = () => {};
+
   return (
     <div className="w-full">
-      <h2 className="font-extrabold text-2xl p-4">ثبت آگهی</h2>
+      <h2 className="font-extrabold text-2xl p-4">
+        {data ? "ویرایش آگهی" : "ثبت آگهی"}
+      </h2>
       <TextInput
         title="عنوان آگهی"
         name="title"
@@ -111,6 +121,14 @@ export default function AddAdvPage() {
       <CustomDatePicker advData={advData} setAdvData={setAdvData} />
       {loading ? (
         <Loader />
+      ) : data ? (
+        <button
+          type="submit"
+          onClick={editHandler}
+          className="w-full md:w-4/5 lg:w-1/2 p-2 m-2 mt-20 mb-20 bg-red-950 text-white rounded hover:bg-red-900 cursor-pointer"
+        >
+          ویرایش آگهی
+        </button>
       ) : (
         <button
           type="submit"
