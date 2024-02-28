@@ -12,8 +12,8 @@ const cities = [
 const categories = {
   apartment: "آپارتمان",
   villa: "ویلا",
-  store: "مغازه",
-  office: "دفتر",
+  commercial: "تجاری",
+  land: "زمین",
 };
 
 export { services, cities, categories };

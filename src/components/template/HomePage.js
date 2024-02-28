@@ -1,4 +1,5 @@
 import { categories, cities, services } from "@/constants/strings";
+import CategoryCard from "@/module/CategoryCard";
 import { FaCity } from "react-icons/fa";
 import { FiCircle } from "react-icons/fi";
 
@@ -18,10 +19,10 @@ export default function HomePage() {
           ))}
         </ul>
       </div>
-      <div>
-        {/* {Object.keys(categories).map((i) => (
-          <CategoryCard title={categories[i]} name={i} />
-        ))} */}
+      <div className="flex justify-center items-center">
+        {Object.keys(categories).map((i, index) => (
+          <CategoryCard title={categories[i]} name={i} key={index} />
+        ))}
       </div>
       <div>
         <h3>شهر های پر بازدید</h3>
