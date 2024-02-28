@@ -8,7 +8,7 @@ export async function DELETE(req, context) {
   try {
     await connectDB();
 
-    const id = context.params.profileId;
+    const id = context.params.advId;
 
     const session = await getServerSession(req);
     if (!session) {
@@ -31,6 +31,7 @@ export async function DELETE(req, context) {
     }
 
     const adv = await Advertisement.findOne({ _id: id });
+
     if (!user._id.equals(adv.userId)) {
       return NextResponse.json(
         {
