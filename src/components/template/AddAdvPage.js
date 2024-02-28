@@ -99,7 +99,7 @@ export default function AddAdvPage({ data }) {
       <TextInput
         title="شماره تماس"
         name="phone"
-        type="number"
+        type="text"
         advData={advData}
         setAdvData={setAdvData}
         textArea={false}
@@ -107,7 +107,7 @@ export default function AddAdvPage({ data }) {
       <TextInput
         title="قیمت تومان"
         name="price"
-        type="number"
+        type="text"
         advData={advData}
         setAdvData={setAdvData}
         textArea={false}
