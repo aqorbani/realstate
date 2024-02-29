@@ -13,7 +13,7 @@ function Header() {
           <Link href="/">صفحه اصلی</Link>
         </li>
         <li className="p-2">
-          <Link href="/advertisements">آگهی ها</Link>
+          <Link href="/properties">آگهی ها</Link>
         </li>
       </ul>
       <ul className="flex pl-5">

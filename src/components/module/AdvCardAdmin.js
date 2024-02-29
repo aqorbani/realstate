@@ -2,9 +2,23 @@
 
 import { useRouter } from "next/navigation";
 import AdvCard from "./AdvCard";
+import toast from "react-hot-toast";
 
 export default function AdvCardAdmin({ data }) {
   const router = useRouter();
+
+  const publishHandler = async () => {
+    const res = await fetch(`/api/adv/publish/${data._id}`, {
+      method: "PATCH",
+    });
+    const result = await res.json();
+    if (result.message) {
+      toast.success(result.message);
+      router.refresh();
+    } else {
+      toast.error(result.error);
+    }
+  };
 
   return (
     <div className="flex flex-col justify-center items-center w-full md:w-2/5 shadow rounded m-5">
