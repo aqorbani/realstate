@@ -22,6 +22,7 @@ export const generateMetadata = async ({ params: { advId } }) => {
     title: adv.title,
     description: adv.description,
     authors: { name: adv.realState },
+    keywords: ["Next.js", "React", "JavaScript", "HealthCare", "Biodiversity"],
     other: { mytag: "test meta tag" },
   };
 };
