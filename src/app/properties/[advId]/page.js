@@ -13,3 +13,15 @@ export default async function page({ params: { advId } }) {
     );
   return <DetailPage data={adv} />;
 }
+
+export const generateMetadata = async ({ params: { advId } }) => {
+  await connectDB();
+  const adv = await Advertisement.findOne({ _id: advId });
+
+  return {
+    title: adv.title,
+    description: adv.description,
+    authors: { name: adv.realState },
+    other: { mytag: "test meta tag" },
+  };
+};
