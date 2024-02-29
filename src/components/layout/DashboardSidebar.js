@@ -33,7 +33,7 @@ export default function DashboardSidebar({ email, role }) {
           </div>
         </Link>
         {role === "ADMIN" && (
-          <Link href="/dashboard/admin">
+          <Link href="/admin">
             <div className="font-semibold text-lg mt-5 p-2 bg-gray-100 rounded hover:bg-red-200 cursor-pointer">
               در انتظار تایید
             </div>
