@@ -12,7 +12,10 @@ export default function AdvCardAdmin({ data }) {
         <AdvCard data={data} />
       </div>
       <div className="flex justify-around items-center w-full">
-        <button className="bg-green-100 text-green-700 p-2 font-medium w-full">
+        <button
+          onClick={publishHandler}
+          className="bg-green-100 text-green-700 p-2 font-medium w-full"
+        >
           انتشار
         </button>
       </div>
