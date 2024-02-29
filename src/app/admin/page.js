@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 import User from "@/models/User";
+import DashboardSidebar from "@/layout/DashboardSidebar";
 
 export default async function page() {
   await connectDB();
@@ -15,5 +16,12 @@ export default async function page() {
   if (user.role !== "ADMIN") {
     redirect("/dashboard");
   }
-  return <div>page</div>;
+  return (
+    <>
+      <div className="w-full md:w-1/3 lg:w-1/5">
+        <DashboardSidebar role={user.role} email={user.email} />
+      </div>
+      <div className="w-full md:w-2/3 lg:w-4/5">admin</div>
+    </>
+  );
 }
