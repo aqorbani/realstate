@@ -1,18 +1,17 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+"use client";
+
 import LogoutButton from "@/module/LogoutButton";
-import { getServerSession } from "next-auth";
 import Link from "next/link";
 import { LuUserSquare2 } from "react-icons/lu";
 
-export default async function DashboardSidebar() {
-  const session = await getServerSession(authOptions);
+export default function DashboardSidebar({ email }) {
   return (
     <div className="shadow-md p-5 rounded">
       <div className="flex flex-col w-full justify-center items-center border-b-2 border-red-900">
         <div className="text-5xl text-gray-200">
           <LuUserSquare2 />
         </div>
-        <p className="text-gray-500 font-medium">{session?.user?.email}</p>
+        {email && <p className="text-gray-500 font-medium">{email}</p>}
       </div>
       <div className="p-2 w-full">
         <Link href="/dashboard">
