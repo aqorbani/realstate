@@ -5,13 +5,15 @@ import Link from "next/link";
 import { LuUserSquare2 } from "react-icons/lu";
 
 export default function DashboardSidebar({ email, role }) {
-  console.log(role);
   return (
     <div className="shadow-md p-5 rounded">
       <div className="flex flex-col w-full justify-center items-center border-b-2 border-red-900">
         <div className="text-5xl text-gray-200">
           <LuUserSquare2 />
         </div>
+        {role === "ADMIN" && (
+          <p className="text-gray-500 font-medium">مدیریت</p>
+        )}
         {email && <p className="text-gray-500 font-medium">{email}</p>}
       </div>
       <div className="p-2 w-full">
