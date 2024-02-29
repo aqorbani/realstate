@@ -4,7 +4,8 @@ import LogoutButton from "@/module/LogoutButton";
 import Link from "next/link";
 import { LuUserSquare2 } from "react-icons/lu";
 
-export default function DashboardSidebar({ email }) {
+export default function DashboardSidebar({ email, role }) {
+  console.log(role);
   return (
     <div className="shadow-md p-5 rounded">
       <div className="flex flex-col w-full justify-center items-center border-b-2 border-red-900">
